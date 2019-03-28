@@ -13,6 +13,10 @@ const GET_POST = gql`
       id
       title
       content
+      comments {
+        id
+        content
+      }
     }
   }
 `;

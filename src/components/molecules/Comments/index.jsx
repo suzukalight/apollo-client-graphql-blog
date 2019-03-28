@@ -30,10 +30,10 @@ const CommentForm = () => (
   </Form>
 );
 
-const Comments = ({ comments = [] }) => (
+const Comments = ({ comments }) => (
   <Comment.Group>
     <CommentHeader>Comment</CommentHeader>
-    {comments.map(comment => (
+    {(comments || []).map(comment => (
       <CommentNode key={comment.id} content={comment.content} />
     ))}
     <CommentForm />
