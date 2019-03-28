@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-scripts": "2.1.8"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "semantic-ui-react": "^0.86.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,11 +27,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^5.0.5",
+    "@babel/core": "^7.4.0",
     "@storybook/addon-actions": "^5.0.5",
     "@storybook/addon-links": "^5.0.5",
     "@storybook/addons": "^5.0.5",
-    "@babel/core": "^7.4.0",
+    "@storybook/react": "^5.0.5",
     "babel-loader": "^8.0.5"
   }
 }
