@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 
 import App from "./App";
 import Post from "../posts";
+import Root from "../root";
 
 const content = `
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
@@ -33,10 +34,23 @@ Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
 viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
 Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.`;
 
-const post = {
-  title: "Lorem ipsum dolor sit amet",
-  content
-};
+const posts = [
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    content
+  },
+  {
+    id: 2,
+    title: "consectetuer adipiscing elit",
+    content
+  },
+  {
+    id: 3,
+    title: "Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes",
+    content
+  }
+];
 
 const comments = [
   {
@@ -57,8 +71,9 @@ export default function AppRouter({ history, location }) {
       <Switch>
         <Route
           path="/posts"
-          render={() => <Post post={post} comments={comments} />}
+          render={() => <Post post={posts[0]} comments={comments} />}
         />
+        <Route path="/" render={() => <Root posts={posts} />} />
       </Switch>
     </App>
   );
