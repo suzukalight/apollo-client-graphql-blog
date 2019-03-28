@@ -2,8 +2,10 @@ import React from "react";
 
 import Post from "../../organisms/Post";
 
-export const PostsPresenter = props => (
+export const PostPresenter = props => (
   <>
     <Post {...props} />
   </>
 );
+
+export default PostPresenter;

@@ -1,14 +1,20 @@
 import React from "react";
+import { Route, BrowserRouter } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import AppHeader from "../../organisms/AppHeader";
-import AppFooter from "../../organisms/AppFooter";
+import Router from "./Router";
 
-export const AppPresenter = props => (
-  <div>
-    <AppHeader />
+import "semantic-ui-css/semantic.min.css";
 
-    {props.children}
+// configure store and router
+const history = createBrowserHistory();
 
-    <AppFooter />
-  </div>
+const Root = () => (
+  <>
+    <BrowserRouter history={history}>
+      <Route path="/" component={Router} />
+    </BrowserRouter>
+  </>
 );
+
+export default Root;

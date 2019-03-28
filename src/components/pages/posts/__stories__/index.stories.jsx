@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-import { PostsPresenter } from "..";
+import { PostPresenter } from "..";
 
 import "semantic-ui-css/semantic.min.css";
 
@@ -25,5 +25,5 @@ const comments = [
 ];
 
 storiesOf("pages/Posts", module).add("default", () => (
-  <PostsPresenter post={post} comments={comments} />
+  <PostPresenter post={post} comments={comments} />
 ));
