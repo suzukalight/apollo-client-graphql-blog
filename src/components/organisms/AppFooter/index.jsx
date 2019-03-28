@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Container, Divider, Image, List } from "semantic-ui-react";
+import { Segment, Container, Divider, List } from "semantic-ui-react";
 
 const AppFooter = () => (
   <Segment
@@ -9,7 +9,7 @@ const AppFooter = () => (
   >
     <Container textAlign="center">
       <Divider inverted section />
-      <Image centered size="mini" src="/logo.png" />
+
       <List horizontal inverted divided link size="small">
         <List.Item as="a" href="#">
           Site Map

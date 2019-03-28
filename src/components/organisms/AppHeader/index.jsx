@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Dropdown, Image, Menu } from "semantic-ui-react";
+import { Container, Dropdown, Menu } from "semantic-ui-react";
 
 const AppHeader = () => (
   <Menu fixed="top" inverted>
     <Container>
       <Link to="/">
         <Menu.Item as="a" header>
-          <Image size="mini" src="/logo.png" style={{ marginRight: "1.5em" }} />
           My Blog
         </Menu.Item>
       </Link>
@@ -16,7 +15,7 @@ const AppHeader = () => (
         <Menu.Item as="a">Home</Menu.Item>
       </Link>
 
-      <Dropdown item simple text="Dropdown">
+      {/* <Dropdown item simple text="Dropdown">
         <Dropdown.Menu>
           <Dropdown.Item>List Item</Dropdown.Item>
           <Dropdown.Item>List Item</Dropdown.Item>
@@ -32,7 +31,7 @@ const AppHeader = () => (
           </Dropdown.Item>
           <Dropdown.Item>List Item</Dropdown.Item>
         </Dropdown.Menu>
-      </Dropdown>
+      </Dropdown> */}
     </Container>
   </Menu>
 );
