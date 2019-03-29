@@ -53,7 +53,7 @@ const Wrap = styled(Container)`
   }
 `;
 
-const UpdatePost = ({ id }) => (
+const UpdatePost = ({ history, id }) => (
   <Query query={GET_POST} variables={{ id }}>
     {({ loading, error, data }) => {
       if (loading) return <Wrap>Loading...</Wrap>;
@@ -63,8 +63,8 @@ const UpdatePost = ({ id }) => (
       return (
         <Mutation
           mutation={UPDATE_POST}
-          onCompleted={() => (window.location.href = `/posts/${id}`)}
-        >
+          onCompleted={data => history.push(`/posts/${data.updatePost.post.id}`)}
+          >
           {(updatePost, { loading, error }) => {
             if (error) return <Wrap>Error!</Wrap>;
 
