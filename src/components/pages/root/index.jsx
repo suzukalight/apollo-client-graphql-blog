@@ -10,7 +10,7 @@ const Post = ({ post: { id, title, content } }) => (
     <Item.Image size="tiny" src="/images/wireframe/image.png" />
 
     <Item.Content>
-      <Item.Header as="a">
+      <Item.Header>
         <Link to={`/posts/${id}`}>{title} </Link>
       </Item.Header>
       {/* <Item.Meta>{authorName}</Item.Meta> */}

@@ -6,13 +6,15 @@ const MenuBar = () => (
   <Menu fixed="top" inverted>
     <Container>
       <Link to="/">
-        <Menu.Item as="a" header>
-          My GraphQL Blog
-        </Menu.Item>
+        <Menu.Item header>My GraphQL Blog</Menu.Item>
       </Link>
 
       <Link to="/">
-        <Menu.Item as="a">Home</Menu.Item>
+        <Menu.Item>Home</Menu.Item>
+      </Link>
+
+      <Link to="/posts/create">
+        <Menu.Item>Create Post</Menu.Item>
       </Link>
     </Container>
   </Menu>
