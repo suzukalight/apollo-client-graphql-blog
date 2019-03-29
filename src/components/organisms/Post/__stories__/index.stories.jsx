@@ -1,7 +1,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 
-import Post from "..";
+import { PostPresenter } from "..";
 
 import "semantic-ui-css/semantic.min.css";
 
@@ -26,5 +27,6 @@ const post = {
 };
 
 storiesOf("organisms/Post", module)
-  .add("default", () => <Post />)
-  .add("two comments", () => <Post post={post} />);
+  .addDecorator(getStory => <MemoryRouter>{getStory()}</MemoryRouter>)
+  .add("default", () => <PostPresenter />)
+  .add("two comments", () => <PostPresenter post={post} />);
