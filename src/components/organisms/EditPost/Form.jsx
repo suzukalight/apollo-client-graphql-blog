@@ -1,22 +1,11 @@
 import React from "react";
-import {
-  Container,
-  Form,
-  Divider as SurDivider,
-  Button
-} from "semantic-ui-react";
+import { Container, Form, Button, Header } from "semantic-ui-react";
 import styled from "styled-components";
 import { Formik } from "formik";
 
 const Wrap = styled(Container)`
   &&& {
     margin: 7em 0;
-  }
-`;
-
-const Divider = styled(SurDivider)`
-  &&& {
-    margin: 2em 0;
   }
 `;
 
@@ -56,9 +45,9 @@ export const EditPost = ({
   onSubmit
 }) => (
   <Wrap text>
-    <p>{title}</p>
-
-    <Divider />
+    <Header as="h3" dividing>
+      {title}
+    </Header>
 
     <Formik
       initialValues={{ ...post }}
