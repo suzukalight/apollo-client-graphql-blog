@@ -24,16 +24,13 @@ export const CreatePostForm = ({ onCreatePost }) => (
 );
 
 const CREATE_POST = gql`
-  input PostCreateInput {
-    title: String!
-    content: String!
-  }
-
-  mutation createPost($input: PostCreateInput) {
-    post {
-      id
-      title
-      content
+  mutation CreatePost($title: String, $content: String) {
+    createPost(input: { title: $title, content: $content }) {
+      post {
+        id
+        title
+        content
+      }
     }
   }
 `;

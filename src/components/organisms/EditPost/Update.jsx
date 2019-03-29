@@ -36,17 +36,13 @@ const GET_POST = gql`
 `;
 
 const UPDATE_POST = gql`
-  input PostUpdateInput {
-    id: ID!
-    title: String
-    content: String
-  }
-
-  mutation updatePost($input: PostUpdateInput) {
-    post {
-      id
-      title
-      content
+  mutation UpdatePost($id: ID!, $title: String, $content: String) {
+    updatePost(input: { id: $id, title: $title, content: $content }) {
+      post {
+        id
+        title
+        content
+      }
     }
   }
 `;
