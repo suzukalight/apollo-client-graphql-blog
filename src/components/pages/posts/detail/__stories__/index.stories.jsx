@@ -25,6 +25,6 @@ const post = {
   comments
 };
 
-storiesOf("pages/Posts", module).add("default", () => (
+storiesOf("pages/posts/detail", module).add("default", () => (
   <PostPresenter post={post} comments={comments} />
 ));

@@ -1,9 +1,15 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 
-import { PostPresenter } from "..";
+import PostCreate from "..";
 
 import "semantic-ui-css/semantic.min.css";
+
+const cache = new InMemoryCache();
+const client = new ApolloClient({ cache });
 
 const comments = [
   {
@@ -25,6 +31,10 @@ const post = {
   comments
 };
 
-storiesOf("pages/Posts", module).add("default", () => (
-  <PostPresenter post={post} comments={comments} />
+storiesOf("pages/posts/create", module).add("default", () => (
+  <MemoryRouter>
+    <ApolloProvider client={client}>
+      <PostCreate post={post} />
+    </ApolloProvider>
+  </MemoryRouter>
 ));
