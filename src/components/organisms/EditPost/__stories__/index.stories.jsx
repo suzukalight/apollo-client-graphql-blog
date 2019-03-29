@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import { CreatePostForm } from "../Create";
-import Form from "../Form";
+import { UpdatePostForm } from "../Update";
 
 import "semantic-ui-css/semantic.min.css";
 
@@ -14,6 +14,4 @@ const post = {
 
 storiesOf("organisms/EditPost", module)
   .add("create", () => <CreatePostForm />)
-  .add("update", () => (
-    <Form title="記事の編集" buttonLabel="編集" post={post} />
-  ));
+  .add("update", () => <UpdatePostForm post={post} />);
