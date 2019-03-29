@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Menu } from "semantic-ui-react";
 
-const AppHeader = () => (
+const MenuBar = () => (
   <Menu fixed="top" inverted>
     <Container>
       <Link to="/">
@@ -17,5 +17,7 @@ const AppHeader = () => (
     </Container>
   </Menu>
 );
+
+const AppHeader = () => <MenuBar />;
 
 export default AppHeader;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Item, Container } from "semantic-ui-react";
+import { Item, Container, Segment, Header } from "semantic-ui-react";
 import styled from "styled-components";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -25,14 +25,54 @@ const Wrap = styled(Container)`
   }
 `;
 
+const Hero = () => (
+  <Segment
+    inverted
+    textAlign="center"
+    style={{ minHeight: 700, padding: "1em 0em" }}
+    vertical
+  >
+    <Container text>
+      <Header
+        as="h1"
+        content="My GraphQL Blog"
+        inverted
+        style={{
+          fontSize: "4em",
+          fontWeight: "normal",
+          marginBottom: 0,
+          marginTop: "3em"
+        }}
+      />
+      <Header
+        as="h2"
+        content="Do whatever you want when you want to."
+        inverted
+        style={{
+          fontSize: "1.7em",
+          fontWeight: "normal",
+          marginTop: "1.5em"
+        }}
+      />
+      {/* <Button primary size="huge">
+        Get Started
+        <Icon name="right arrow" />
+      </Button> */}
+    </Container>
+  </Segment>
+);
+
 export const RootPresenter = ({ posts = [] }) => (
-  <Wrap text>
-    <Item.Group divided>
-      {posts.map(post => (
-        <Post key={post.id} post={post} />
-      ))}
-    </Item.Group>
-  </Wrap>
+  <>
+    <Hero />
+    <Wrap text>
+      <Item.Group divided>
+        {posts.map(post => (
+          <Post key={post.id} post={post} />
+        ))}
+      </Item.Group>
+    </Wrap>
+  </>
 );
 
 const LIST_POSTS = gql`
