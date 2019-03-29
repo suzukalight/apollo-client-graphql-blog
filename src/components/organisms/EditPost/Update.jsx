@@ -47,6 +47,9 @@ const UPDATE_POST = gql`
   }
 `;
 
+const onCompleted = history => data =>
+  history.push(`/posts/${data.updatePost.post.id}`);
+
 const Wrap = styled(Container)`
   &&& {
     margin: 7em 0;
@@ -61,10 +64,7 @@ const UpdatePost = ({ history, id }) => (
 
       const { post } = data || {};
       return (
-        <Mutation
-          mutation={UPDATE_POST}
-          onCompleted={data => history.push(`/posts/${data.updatePost.post.id}`)}
-          >
+        <Mutation mutation={UPDATE_POST} onCompleted={onCompleted(history)}>
           {(updatePost, { loading, error }) => {
             if (error) return <Wrap>Error!</Wrap>;
 

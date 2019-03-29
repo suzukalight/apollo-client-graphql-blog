@@ -41,11 +41,11 @@ const Wrap = styled(Container)`
   }
 `;
 
-const CreatePost = ({ history, post = {} }) => (
-  <Mutation
-    mutation={CREATE_POST}
-    onCompleted={data => history.push(`/posts/${data.createPost.post.id}`)}
-  >
+const onCompleted = history => data =>
+  history.push(`/posts/${data.createPost.post.id}`);
+
+const CreatePost = ({ history }) => (
+  <Mutation mutation={CREATE_POST} onCompleted={onCompleted(history)}>
     {(createPost, { data, loading, error }) => {
       if (error) return <Wrap>Error</Wrap>;
       return <CreatePostForm onCreatePost={createPost} loading={loading} />;
