@@ -32,7 +32,7 @@ const Divider = styled(SurDivider)`
 
 export const PostPresenter = ({ post = {} }) => (
   <Wrap text>
-    <Header as="h1">{post.title}</Header>
+    <Header as="h1">{post.title || "(no title)"}</Header>
 
     <EditWrap textAlign="right">
       <Link to={`/posts/${post.id}/edit`}>
@@ -40,13 +40,11 @@ export const PostPresenter = ({ post = {} }) => (
       </Link>
     </EditWrap>
 
-    <p>{post.content}</p>
+    <p>{post.content || "(no content)"}</p>
 
     <Divider />
 
-    <div>
-      <Comments comments={post.comments} />
-    </div>
+    <Comments comments={post.comments} />
   </Wrap>
 );
 

@@ -33,9 +33,11 @@ const CommentForm = () => (
 const Comments = ({ comments }) => (
   <Comment.Group>
     <CommentHeader>Comment</CommentHeader>
-    {(comments || []).map(comment => (
-      <CommentNode key={comment.id} content={comment.content} />
-    ))}
+    {(comments || []).length
+      ? comments.map(comment => (
+          <CommentNode key={comment.id} content={comment.content} />
+        ))
+      : "（コメントはありません）"}
     <CommentForm />
   </Comment.Group>
 );
