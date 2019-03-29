@@ -7,7 +7,7 @@ const MenuBar = () => (
     <Container>
       <Link to="/">
         <Menu.Item as="a" header>
-          My Blog
+          My GraphQL Blog
         </Menu.Item>
       </Link>
 

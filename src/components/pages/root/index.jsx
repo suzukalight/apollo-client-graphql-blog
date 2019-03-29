@@ -19,59 +19,62 @@ const Post = ({ post: { id, title, content } }) => (
   </Item>
 );
 
-const Wrap = styled(Container)`
+const HeroWrap = styled(Segment)`
   &&& {
-    margin: 7em 0;
+    min-height: 600px;
+    padding: 1em 0;
+  }
+`;
+
+const Title = styled(Header)`
+  &&& {
+    margin: 3em 0 0;
+    font-size: 4em;
+    font-weight: normal;
+  }
+`;
+
+const Description = styled(Header)`
+  &&& {
+    margin: 1.5em 0 0;
+    font-size: 1.7em;
+    font-weight: normal;
   }
 `;
 
 const Hero = () => (
-  <Segment
-    inverted
-    textAlign="center"
-    style={{ minHeight: 700, padding: "1em 0em" }}
-    vertical
-  >
+  <HeroWrap inverted textAlign="center" vertical>
     <Container text>
-      <Header
-        as="h1"
-        content="My GraphQL Blog"
-        inverted
-        style={{
-          fontSize: "4em",
-          fontWeight: "normal",
-          marginBottom: 0,
-          marginTop: "3em"
-        }}
-      />
-      <Header
-        as="h2"
-        content="Do whatever you want when you want to."
-        inverted
-        style={{
-          fontSize: "1.7em",
-          fontWeight: "normal",
-          marginTop: "1.5em"
-        }}
-      />
+      <Title as="h1" inverted>
+        My GraphQL Blog
+      </Title>
+      <Description as="h2" inverted>
+        Do whatever you want when you want to.
+      </Description>
       {/* <Button primary size="huge">
         Get Started
         <Icon name="right arrow" />
       </Button> */}
     </Container>
-  </Segment>
+  </HeroWrap>
 );
+
+const PostsWrap = styled(Container)`
+  &&& {
+    margin: 7em 0;
+  }
+`;
 
 export const RootPresenter = ({ posts = [] }) => (
   <>
     <Hero />
-    <Wrap text>
+    <PostsWrap text>
       <Item.Group divided>
         {posts.map(post => (
           <Post key={post.id} post={post} />
         ))}
       </Item.Group>
-    </Wrap>
+    </PostsWrap>
   </>
 );
 
