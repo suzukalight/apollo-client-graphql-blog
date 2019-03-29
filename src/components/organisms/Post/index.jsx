@@ -10,7 +10,7 @@ import styled from "styled-components";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
-import Comments from "../../molecules/Comments";
+import Comments from "../Comments";
 
 const Wrap = styled(Container)`
   &&& {
@@ -44,7 +44,7 @@ export const PostPresenter = ({ post = {} }) => (
 
     <Divider />
 
-    <Comments comments={post.comments} />
+    <Comments postId={post.id} comments={post.comments} />
   </Wrap>
 );
 
