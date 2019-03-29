@@ -1,10 +1,16 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 
 import { PostPresenter } from "..";
 
 import "semantic-ui-css/semantic.min.css";
+
+const client = new ApolloClient({
+  cache: new InMemoryCache()
+});
 
 const comments = [
   {
@@ -27,6 +33,10 @@ const post = {
 };
 
 storiesOf("organisms/Post", module)
-  .addDecorator(getStory => <MemoryRouter>{getStory()}</MemoryRouter>)
+  .addDecorator(getStory => (
+    <MemoryRouter>
+      <ApolloProvider client={client}>{getStory()}</ApolloProvider>
+    </MemoryRouter>
+  ))
   .add("default", () => <PostPresenter />)
   .add("two comments", () => <PostPresenter post={post} />);
