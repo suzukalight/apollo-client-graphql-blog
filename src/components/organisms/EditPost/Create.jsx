@@ -24,10 +24,17 @@ export const CreatePostForm = ({ onCreatePost }) => (
 );
 
 const CREATE_POST = gql`
-  mutation CreatePost($title: String, $content: String) {
-    id
-    title
-    content
+  input PostCreateInput {
+    title: String!
+    content: String!
+  }
+
+  mutation createPost($input: PostCreateInput) {
+    post {
+      id
+      title
+      content
+    }
   }
 `;
 
@@ -44,7 +51,7 @@ const CreatePost = ({ post = {} }) => (
   >
     {(createPost, { data, loading, error }) => {
       if (error) return <Wrap>Error</Wrap>;
-      return <CreatePostForm onCreatePost={createPost} />;
+      return <CreatePostForm onCreatePost={createPost} loading={loading} />;
     }}
   </Mutation>
 );
