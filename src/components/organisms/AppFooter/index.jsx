@@ -1,12 +1,16 @@
 import React from "react";
 import { Segment, Container, Divider, List } from "semantic-ui-react";
+import styled from "styled-components";
+
+const Wrap = styled(Segment)`
+  &&& {
+    margin-top: 5em;
+    padding: 5em 0;
+  }
+`;
 
 const AppFooter = () => (
-  <Segment
-    inverted
-    vertical
-    style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
-  >
+  <Wrap inverted vertical>
     <Container textAlign="center">
       <Divider inverted section />
 
@@ -25,7 +29,7 @@ const AppFooter = () => (
         </List.Item>
       </List>
     </Container>
-  </Segment>
+  </Wrap>
 );
 
 export default AppFooter;

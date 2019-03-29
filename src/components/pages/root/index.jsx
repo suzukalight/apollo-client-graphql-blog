@@ -1,29 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, Container } from "semantic-ui-react";
+import { Item, Container } from "semantic-ui-react";
+import styled from "styled-components";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
 const Post = ({ post: { id, title, content } }) => (
-  <Link to={`/posts/${id}`}>
-    <Card>
-      <Card.Content>
-        <Card.Header>{(title || "").substring(0, 128)}</Card.Header>
-        {/* <Card.Meta>{authorName}</Card.Meta> */}
-        <Card.Description>{(content || "").substring(0, 128)}</Card.Description>
-      </Card.Content>
-    </Card>
-  </Link>
+  <Item>
+    <Item.Image size="tiny" src="/images/wireframe/image.png" />
+
+    <Item.Content>
+      <Item.Header as="a">
+        <Link to={`/posts/${id}`}>{title} </Link>
+      </Item.Header>
+      {/* <Item.Meta>{authorName}</Item.Meta> */}
+      <Item.Description>{content}</Item.Description>
+    </Item.Content>
+  </Item>
 );
 
+const Wrap = styled(Container)`
+  &&& {
+    margin: 7em 0;
+  }
+`;
+
 export const RootPresenter = ({ posts = [] }) => (
-  <Container style={{ marginTop: "7em" }}>
-    <Card.Group itemsPerRow={3}>
+  <Wrap text>
+    <Item.Group divided>
       {posts.map(post => (
         <Post key={post.id} post={post} />
       ))}
-    </Card.Group>
-  </Container>
+    </Item.Group>
+  </Wrap>
 );
 
 const LIST_POSTS = gql`

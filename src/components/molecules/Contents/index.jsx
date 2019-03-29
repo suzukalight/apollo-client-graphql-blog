@@ -1,11 +1,18 @@
 import React from "react";
 import { Container, Header } from "semantic-ui-react";
+import styled from "styled-components";
+
+const Wrap = styled(Container)`
+  &&& {
+    margin-top: 7em;
+  }
+`;
 
 const Contents = ({ children, title }) => (
-  <Container text style={{ marginTop: "7em" }}>
+  <Wrap text>
     <Header as="h1">{title}</Header>
     <p>{children}</p>
-  </Container>
+  </Wrap>
 );
 
 export default Contents;
