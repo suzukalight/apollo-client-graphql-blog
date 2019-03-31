@@ -6,13 +6,13 @@ An example of blog system using apollo-client and formik.
 
 - CRA
 - apollo-client
+- formik
 - semantic-ui-react
 - styled-components
-- formik
 
 ## Required
 
-- GraphQL Backend: https://github.com/occmee/study-graphql-ruby
+- GraphQL Backend: https://github.com/suzukalight/study-prisma-graphql
 
 ## Run
 

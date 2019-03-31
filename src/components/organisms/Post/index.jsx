@@ -69,7 +69,7 @@ const Post = ({ id }) => (
       if (error) return <Wrap>Error!</Wrap>;
 
       const { post } = data || {};
-      return <PostPresenter post={post} />;
+      return <PostPresenter post={post || {}} />;
     }}
   </Query>
 );
